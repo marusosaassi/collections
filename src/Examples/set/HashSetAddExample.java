@@ -1,4 +1,4 @@
-package Examples;
+package Examples.set;
 
 import java.util.*;
 
