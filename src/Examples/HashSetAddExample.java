@@ -2,7 +2,7 @@ package Examples;
 
 import java.util.*;
 
-public class AddHashSetExample {
+public class HashSetAddExample {
     public static void main(String[] args) {
         HashSet<String> hs = new HashSet<>();
         hs.add("one");
