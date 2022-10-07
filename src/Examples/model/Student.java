@@ -2,12 +2,12 @@ package Examples.model;
 
 public class Student implements Comparable<Student>{
     private String name;
-    private int grade;
+    private Integer grade;
 
     public Student() {
     }
 
-    public Student(String name, int grade) {
+    public Student(String name, Integer grade) {
         this.name = name;
         this.grade = grade;
     }
@@ -24,7 +24,7 @@ public class Student implements Comparable<Student>{
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(Integer grade) {
         this.grade = grade;
     }
 
@@ -44,7 +44,7 @@ public class Student implements Comparable<Student>{
         return this.name.compareTo(s.name);
     }*/
 
-     @Override
+     /*@Override
     public int compareTo(Student s) {
 
          if (this.grade == s.grade) return 0;
@@ -52,5 +52,14 @@ public class Student implements Comparable<Student>{
          if (this.grade < s.grade) return -1;
 
          return -1;
+    }*/
+
+    @Override
+    public int compareTo(Student s) {
+
+        if(this.grade.equals(null)) {
+            return 0;
+        }
+        return this.grade.compareTo(s.grade);
     }
 }
