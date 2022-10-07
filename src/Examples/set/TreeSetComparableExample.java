@@ -7,7 +7,8 @@ import java.util.TreeSet;
 
 public class TreeSetComparableExample {
     public static void main(String[] args) {
-        Set<Student> ss = new TreeSet<>();
+        Set<Student> ss = new TreeSet<>((a,b ) -> b.getName().compareTo(a.getName()));
+        //wil ignore the compare to to use this
 
         ss.add(new Student("Maru", 10));
         ss.add(new Student("Rafael", 9));
