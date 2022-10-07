@@ -20,7 +20,7 @@ public class Student implements Comparable<Student>{
         this.name = name;
     }
 
-    public int getGrade() {
+    public Integer getGrade() {
         return grade;
     }
 
