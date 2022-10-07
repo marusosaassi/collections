@@ -36,15 +36,15 @@ public class Student implements Comparable<Student>{
                 '}';
     }
 
-    @Override
+    /*@Override
     public int compareTo(Student s) {
         if(this.name == null) {
             return 0;
         }
         return this.name.compareTo(s.name);
-    }
+    }*/
 
-     /*@Override
+     @Override
     public int compareTo(Student s) {
 
          if (this.grade == s.grade) return 0;
@@ -52,5 +52,5 @@ public class Student implements Comparable<Student>{
          if (this.grade < s.grade) return -1;
 
          return -1;
-    }*/
+    }
 }
