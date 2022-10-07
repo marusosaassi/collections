@@ -1,6 +1,6 @@
 package Examples.model;
 
-public class Student {
+public class Student implements Comparable<Student>{
     private String name;
     private int grade;
 
@@ -35,4 +35,22 @@ public class Student {
                 ", grade=" + grade +
                 '}';
     }
+
+    @Override
+    public int compareTo(Student s) {
+        if(this.name == null) {
+            return 0;
+        }
+        return this.name.compareTo(s.name);
+    }
+
+     /*@Override
+    public int compareTo(Student s) {
+
+         if (this.grade == s.grade) return 0;
+         if (this.grade > s.grade) return 1;
+         if (this.grade < s.grade) return -1;
+
+         return -1;
+    }*/
 }
