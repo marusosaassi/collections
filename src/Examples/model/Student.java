@@ -1,5 +1,7 @@
 package Examples.model;
 
+import java.util.Objects;
+
 public class Student implements Comparable<Student>{
     private String name;
     private Integer grade;
@@ -61,5 +63,21 @@ public class Student implements Comparable<Student>{
             return 0;
         }
         return this.grade.compareTo(s.grade);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true; //compare with the instance, if they have the same reference, they are equals
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Objects.equals(name, student.name) && Objects.equals(grade, student.grade);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, grade);
+        //if in the hashcode we left only the name and we also
+        // take out the comparison by grade in the equals,
+        // it would only detect the unique values only by the name
     }
 }
