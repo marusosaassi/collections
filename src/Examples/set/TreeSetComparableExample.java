@@ -2,13 +2,15 @@ package Examples.set;
 
 import Examples.model.Student;
 
+import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class TreeSetComparableExample {
     public static void main(String[] args) {
-        Set<Student> ss = new TreeSet<>((a,b ) -> b.getName().compareTo(a.getName()));
+        //Set<Student> ss = new TreeSet<>((a,b ) -> b.getName().compareTo(a.getName()));
         //wil ignore the compare to to use this
+        Set<Student> ss = new TreeSet<>(Comparator.comparing(Student::getGrade).reversed());
 
         ss.add(new Student("Maru", 10));
         ss.add(new Student("Rafael", 9));
