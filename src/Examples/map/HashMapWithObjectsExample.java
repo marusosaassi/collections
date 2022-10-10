@@ -1,25 +1,37 @@
 package Examples.map;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
-public class HashMapExample {
+public class HashMapWithObjectsExample {
     public static void main(String[] args) {
-        Map<String, String>  person = new HashMap<>();
+        Map<String, Object>  person = new HashMap<>();
 
         //person.put(null, "1234");  // it does accept null as key
         person.put("name", "Rafael"); //the keys are always unique, we can't have two 'name' keys
         person.put("lastname", "Flores");
         person.put("email", "rafa@gmail.com");
         person.put("age", "26");
-        person.put("city", "Mérida");
+        person.put("city", "Los Ángeles");
         person.put("bloodType", "A+");
         person.put("eyesColor", "dark");
 
+        Map<String, String> address = new HashMap<>();
+        address.put("country", "United States");
+        address.put("state", "California");
+        address.put("city", "Los Angeles");
+        address.put("street", "Beverly Hills");
+        address.put("number", "192");
+
+        person.put("address", address);
+
         System.out.println("person = " + person);
 
-        String name = person.get("name");
+        String name = (String) person.get("name");
         System.out.println(name);
-        String lastname = person.get("lastname");
+        String lastname = (String) person.get("lastname");
         System.out.println(lastname);
 
         //person.clear();
@@ -41,8 +53,8 @@ public class HashMapExample {
         System.out.println("Contains value 'A+' = " + b3);
 
         System.out.println("--- values ---");
-        Collection<String> values = person.values(); //like a set, it is not sorted
-        for(String v: values) {
+        Collection<Object> values = person.values(); //like a set, it is not sorted
+        for(Object v: values) {
             System.out.println(v);
         }
 
@@ -53,13 +65,13 @@ public class HashMapExample {
         }
 
         System.out.println("--- entrySet ---");
-        for(Map.Entry<String, String> e : person.entrySet()) {
+        for(Map.Entry<String, Object> e : person.entrySet()) {
             System.out.println(e.getKey() + " => " + e.getValue());
         }
 
         System.out.println("--- keySet ---");
         for(String key : person.keySet()) {
-            String value = person.get(key);
+            Object value = person.get(key);
             System.out.println(key + " => " + value);
         }
 
@@ -77,6 +89,15 @@ public class HashMapExample {
         //this returns a boolean, blue doesn't exist, so it returns false
 
         System.out.println(person);
+
+        Map<String, String> personAddress = (Map<String, String>) person.get("address");
+        String country = personAddress.get("country");
+        String city = personAddress.get("city");
+        String zipCode = personAddress.getOrDefault("zipCode", null);
+
+        System.out.println(name + "'s country = " + country);
+        System.out.println(name + "'s city = " + city);
+        System.out.println(name + "'s ZIP code = " + zipCode);
 
     }
 }
