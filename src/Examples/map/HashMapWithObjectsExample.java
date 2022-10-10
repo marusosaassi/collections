@@ -66,13 +66,31 @@ public class HashMapWithObjectsExample {
 
         System.out.println("--- entrySet ---");
         for(Map.Entry<String, Object> e : person.entrySet()) {
-            System.out.println(e.getKey() + " => " + e.getValue());
+            Object value = e.getValue();
+            if(value instanceof Map) {
+                /*nMap<String, String> mapAddress = (Map<String,String> )value;
+                System.out.println(name + "'s country = " + mapAddress.get("country"));
+                System.out.println(name + "'s state = " + mapAddress.get("city")); */
+                Map<String, String> mapAddress = (Map<String, String>)value;
+                for(Map.Entry<String,String> eDir: mapAddress.entrySet()){
+                    System.out.println(eDir.getKey() + " => " + eDir.getValue());
+                }
+            } else {
+                System.out.println(e.getKey() + " => " + value);
+            }
         }
 
         System.out.println("--- keySet ---");
         for(String key : person.keySet()) {
             Object value = person.get(key);
-            System.out.println(key + " => " + value);
+            if(value instanceof Map) {
+                Map<String, String> mapAddress = (Map<String,String> )value;
+                System.out.println(name + "'s country = " + mapAddress.get("country"));
+                System.out.println(name + "'s state = " + mapAddress.get("city"));
+            } else {
+                System.out.println(key + " => " + value);
+            }
+
         }
 
         System.out.println("--- java8 ---");
