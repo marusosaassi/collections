@@ -1,4 +1,4 @@
-package Examples.set;
+package Examples.list;
 
 import Examples.model.Student;
 
